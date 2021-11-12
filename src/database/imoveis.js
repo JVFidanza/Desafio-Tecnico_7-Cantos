@@ -1,10 +1,22 @@
 const imoveis = [{
-  type: 'Apartamento',
-  address: 'Rua Silva Paulet, 772',
-  city: 'Fortaleza',
-  state: 'CE',
-  image: 'edificio-itapua.jpeg',
-
+  tipo: 'Apartamento',
+  endereço: 'Rua Silva Paulet, 772',
+  bairro: 'Aldeota',
+  cidade: 'Fortaleza',
+  estado: 'CE',
+  imagem: 'images/edificio-itapua.jpeg',
+  quartos: 3,
+  vagas: 2,
+},
+{
+  tipo: 'Apartamento',
+  endereço: 'Rua Silva Paulet, 772',
+  bairro: 'Aldeota',
+  cidade: 'Fortaleza',
+  estado: 'CE',
+  imagem: 'images/edificio-itapua.jpeg',
+  quartos: 3,
+  vagas: 2,
 }];
 
 export default imoveis;

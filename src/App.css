@@ -28,6 +28,14 @@
   color: #61dafb;
 }
 
+.MuiCard-root {
+  display:inline-table;
+  margin: 10px;
+}
+
+.MuiSvgIcon-root {
+  padding-right: 10px;
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
