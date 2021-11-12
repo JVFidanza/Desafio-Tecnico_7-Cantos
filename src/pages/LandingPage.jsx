@@ -1,5 +1,5 @@
 import React from 'react';
-import RealEstateCard from '../components/Card';
+import RealEstateCard from '../components/RealEstateCard';
 import imoveis from '../database/imoveis';
 
 function LandingPage() {

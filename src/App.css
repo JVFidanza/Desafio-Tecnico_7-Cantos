@@ -36,6 +36,20 @@
 .MuiSvgIcon-root {
   padding-right: 10px;
 }
+
+.MuiTypography-root{
+  padding-top: 5px;
+}
+
+.icon-text{
+  margin: 0;
+}
+.icon-box{
+  max-height: fit-content;
+  display: -webkit-box;
+  -webkit-box-align: center;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

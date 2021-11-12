@@ -20,16 +20,24 @@ function RealEstateCard({ data }) {
       />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
-          { `${tipo} ${bairro}`}
+          <h3>{ `${tipo} ${bairro}`}</h3>
         </Typography>
-        <AddLocationAltIcon sx={ { maxWidth: 20 } } />
-        {endereço}
-        <br />
-        <LocalHotelIcon sx={ { maxWidth: 20 } } />
-        {quartos > 1 ? `${quartos} quartos` : `${quartos} quarto`}
-        <br />
-        <DirectionsCarIcon sx={ { maxWidth: 20 } } />
-        {vagas > 1 ? `${vagas} vagas` : `${vagas} vaga`}
+        <span className="icon-box">
+          <AddLocationAltIcon sx={ { maxWidth: 20 } } />
+          <h5 className="icon-text">{endereço}</h5>
+        </span>
+        <span className="icon-box">
+          <LocalHotelIcon sx={ { maxWidth: 20 } } />
+          <h5 className="icon-text">
+            {quartos > 1 ? `${quartos} quartos` : `${quartos} quarto`}
+          </h5>
+        </span>
+        <span className="icon-box">
+          <DirectionsCarIcon sx={ { maxWidth: 20 } } />
+          <h5 className="icon-text">
+            {vagas > 1 ? `${vagas} vagas` : `${vagas} vaga`}
+          </h5>
+        </span>
         <Typography variant="body2" color="text.secondary">
           Minha casinha mah e tal num sei o que blablabla moro aqui mermo
           eu venha morar tambem fodase
