@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import Card from '@mui/material/Card';
 import CardMedia from '@mui/material/CardMedia';
 import PropTypes from 'prop-types';
@@ -7,9 +7,12 @@ import Typography from '@mui/material/Typography';
 import AddLocationAltIcon from '@mui/icons-material/AddLocationAlt';
 import LocalHotelIcon from '@mui/icons-material/LocalHotel';
 import DirectionsCarIcon from '@mui/icons-material/DirectionsCar';
+import Stack from '@mui/material/Stack';
+import Button from '@mui/material/Button';
 
 function RealEstateCard({ data }) {
-  const { bairro, tipo, endereço, imagem, quartos, vagas } = data;
+  const { bairro, tipo, endereço, imagem, quartos, vagas, valor } = data;
+
   return (
     <Card sx={ { maxWidth: 345 } }>
       <CardMedia
@@ -20,7 +23,7 @@ function RealEstateCard({ data }) {
       />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
-          <h3>{ `${tipo} ${bairro}`}</h3>
+          { `${tipo} - ${bairro}`}
         </Typography>
         <span className="icon-box">
           <AddLocationAltIcon sx={ { maxWidth: 20 } } />
@@ -38,11 +41,14 @@ function RealEstateCard({ data }) {
             {vagas > 1 ? `${vagas} vagas` : `${vagas} vaga`}
           </h5>
         </span>
-        <Typography variant="body2" color="text.secondary">
-          Minha casinha mah e tal num sei o que blablabla moro aqui mermo
-          eu venha morar tambem fodase
+        <Typography variant="h5" color="text.primary">
+          {`R$${valor}`}
         </Typography>
       </CardContent>
+      <Stack spacing={ 2 } direction="row" size="large">
+        <Button variant="contained">Editar</Button>
+        <Button variant="contained">Deletar</Button>
+      </Stack>
     </Card>
   );
 }
@@ -57,6 +63,7 @@ RealEstateCard.propTypes = {
     imagem: PropTypes.string,
     vagas: PropTypes.number,
     quartos: PropTypes.number,
+    valor: PropTypes.string,
   }).isRequired,
 };
 

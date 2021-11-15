@@ -49,6 +49,12 @@
   display: -webkit-box;
   -webkit-box-align: center;
 }
+/* 
+.MuiButton-root{
+  border: 10px;
+  display: flex;
+  align-items: center;
+} */
 
 @keyframes App-logo-spin {
   from {
