@@ -49,12 +49,14 @@
   display: -webkit-box;
   -webkit-box-align: center;
 }
-/* 
+
 .MuiButton-root{
-  border: 10px;
-  display: flex;
-  align-items: center;
-} */
+  /* align-self: baseline; */
+}
+
+.MuiButton-contained{
+  color:'error';
+}
 
 @keyframes App-logo-spin {
   from {

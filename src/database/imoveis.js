@@ -1,4 +1,5 @@
 /* eslint-disable sonarjs/no-duplicate-string */
+
 const imoveis = [{
   tipo: 'Apartamento',
   endereço: 'Rua Silva Paulet, 772',
@@ -30,5 +31,10 @@ const imoveis = [{
   id: 3,
 },
 ];
+
+// const onClickDelete = (id) => {
+//   const idIndex = imoveis.findIndex((obj) => obj.id === id);
+//   imoveis.splice(idIndex, 1);
+// };
 
 export default imoveis;

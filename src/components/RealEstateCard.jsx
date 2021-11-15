@@ -9,9 +9,17 @@ import LocalHotelIcon from '@mui/icons-material/LocalHotel';
 import DirectionsCarIcon from '@mui/icons-material/DirectionsCar';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
+import { useHistory } from 'react-router';
+import imoveis from '../database/imoveis';
 
 function RealEstateCard({ data }) {
-  const { bairro, tipo, endereço, imagem, quartos, vagas, valor } = data;
+  const { bairro, tipo, endereço, imagem, quartos, vagas, valor, id: cardId } = data;
+  const history = useHistory();
+  const onClickDelete = (id) => {
+    const idIndex = imoveis.findIndex((obj) => obj.id === id);
+    imoveis.splice(idIndex, 1);
+    history.push('/');
+  };
 
   return (
     <Card sx={ { maxWidth: 345 } }>
@@ -46,8 +54,16 @@ function RealEstateCard({ data }) {
         </Typography>
       </CardContent>
       <Stack spacing={ 2 } direction="row" size="large">
-        <Button variant="contained">Editar</Button>
-        <Button variant="contained">Deletar</Button>
+        <Button fullWidth variant="contained">Editar</Button>
+        <Button
+          onClick={ () => onClickDelete(cardId) }
+          fullWidth
+          color="error"
+          variant="contained"
+        >
+          Deletar
+
+        </Button>
       </Stack>
     </Card>
   );
@@ -64,6 +80,7 @@ RealEstateCard.propTypes = {
     vagas: PropTypes.number,
     quartos: PropTypes.number,
     valor: PropTypes.string,
+    id: PropTypes.number,
   }).isRequired,
 };
 
