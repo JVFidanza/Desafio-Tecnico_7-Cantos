@@ -6,4 +6,4 @@ Esse é um repositório da minha aplicação teste para a 7 Cantos. A idéia aqu
 
 ## Como usar?
 
-Clone o repósitorio, use os comandos 'npm install' e 'npm start' e BUMBA! Simples assim.
+Clone o repósitorio, use os comandos 'npm install' e 'npm start' e PRONTO! Simples assim.
