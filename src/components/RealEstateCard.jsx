@@ -15,10 +15,15 @@ import imoveis from '../database/imoveis';
 function RealEstateCard({ data }) {
   const { bairro, tipo, endereço, imagem, quartos, vagas, valor, id: cardId } = data;
   const history = useHistory();
+
   const onClickDelete = (id) => {
     const idIndex = imoveis.findIndex((obj) => obj.id === id);
     imoveis.splice(idIndex, 1);
     history.push('/');
+  };
+
+  const onClickEdit = (id) => {
+    history.push(`/editar/${id}`);
   };
 
   return (
@@ -54,7 +59,14 @@ function RealEstateCard({ data }) {
         </Typography>
       </CardContent>
       <Stack spacing={ 2 } direction="row" size="large">
-        <Button fullWidth variant="contained">Editar</Button>
+        <Button
+          onClick={ () => onClickEdit(cardId) }
+          fullWidth
+          variant="contained"
+        >
+          Editar
+
+        </Button>
         <Button
           onClick={ () => onClickDelete(cardId) }
           fullWidth

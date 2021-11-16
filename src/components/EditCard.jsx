@@ -1,4 +1,7 @@
-import React, { useState } from 'react';
+/* eslint-disable react/destructuring-assignment */
+/* eslint-disable react/no-this-in-sfc */
+/* eslint-disable react/prop-types */
+import React, { useState, useEffect } from 'react';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import MenuItem from '@mui/material/MenuItem';
@@ -6,7 +9,7 @@ import Button from '@mui/material/Button';
 import { useHistory } from 'react-router-dom';
 import imoveis from '../database/imoveis';
 
-function CreateCard() {
+function CreateCard(props) {
   const history = useHistory();
   const [typeSelect, setTypeSelect] = useState('');
   const [street, setStreet] = useState('');
@@ -14,19 +17,38 @@ function CreateCard() {
   const [neighborhood, setNeighborhood] = useState('');
   const [imgLink, setImgLink] = useState('');
   const [roomsSelect, setRoomsSelect] = useState('');
+  const [parkingSpots, setParkingSpots] = useState('');
+  const [price, setPrice] = useState('');
   const onChange = (e, setState) => {
     setState(e.target.value);
   };
+  const { id } = props.match.params;
+  useEffect(() => {
+    console.log(id);
+    const dbObj = imoveis.find((obj) => obj.id === parseInt(id, 10));
+    setTypeSelect(dbObj.tipo);
+    setStreet(dbObj.endereço.split(',')[0]);
+    setNumber(dbObj.endereço.split(', ')[1]);
+    setNeighborhood(dbObj.bairro);
+    setImgLink(dbObj.imagem);
+    setRoomsSelect(dbObj.quartos);
+    setParkingSpots(dbObj.vagas);
+    setPrice(dbObj.valor);
+  }, [id]);
 
-  const onClickRegister = () => {
+  const onClickSave = () => {
     const imovel = {
       tipo: typeSelect,
       endereço: `${street}, ${number}`,
       bairro: neighborhood,
       imagem: imgLink,
+      quartos: roomsSelect,
+      vagas: parkingSpots,
+      valor: price,
+      id: parseInt(id, 10),
     };
-    imovel.id = imoveis[imoveis.length - 1].id + 1;
-    imoveis.push(imovel);
+    const objIndex = imoveis.findIndex((obj) => obj.id === parseInt(id, 10));
+    imoveis[objIndex] = imovel;
     history.push('/');
   };
   return (
@@ -83,7 +105,7 @@ function CreateCard() {
         />
         <Button
           variant="contained"
-          onClick={ () => onClickRegister() }
+          onClick={ () => onClickSave() }
         >
           Salvar
         </Button>

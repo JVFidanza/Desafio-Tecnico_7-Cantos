@@ -50,9 +50,9 @@
   -webkit-box-align: center;
 }
 
-.MuiButton-root{
-  /* align-self: baseline; */
-}
+/* .MuiButton-root{
+  align-self: baseline;
+} */
 
 .MuiButton-contained{
   color:'error';
